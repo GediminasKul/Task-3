@@ -26,3 +26,10 @@ fetch(ENDPOINT)
   .catch(function (err) {
     console.log(`error: ${err}`);
   });
+
+function createDiv(login, avatar) {
+  const createNewDiv = document.createElement('div');
+  createNewDiv.innerHTML = `<img src="${avatar}" alt="Avatar image"/>
+  <h3>${login}</h3>`;
+  return createNewDiv;
+}

@@ -13,8 +13,10 @@ Pastaba: Informacija apie user'į (jo kortelė) bei turi turėti bent minimalų 
 const ENDPOINT = 'https://api.github.com/users';
 const button = document.getElementById('btn');
 const result = document.getElementById('output');
+const msg = document.getElementById('message');
 
 button.addEventListener('click', () => {
+  msg.remove();
   getUsers();
 });
 
@@ -47,6 +49,14 @@ function createDiv(login, avatar) {
   const createNewDiv = document.createElement('div');
   createNewDiv.innerHTML = `<img src="${avatar}" alt="Avatar image"/>
   <h3>${login}</h3>`;
+  createNewDiv.classList.add('div-style');
+  createNewDiv.style.width = '40%';
+  createNewDiv.style.background = 'DeepSkyBlue';
+  createNewDiv.style.display = 'block';
+  createNewDiv.style.margin = '0.5rem auto';
+  createNewDiv.style.justifyContent = 'Center';
+  createNewDiv.style.borderRadius = '20px';
+  createNewDiv.style.padding = '0.8rem';
   return createNewDiv;
 }
 

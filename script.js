@@ -11,3 +11,7 @@ Pastaba: Informacija apie user'į (jo kortelė) bei turi turėti bent minimalų 
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+let button = document.getElementById('btn');
+
+// 1. Paimti/pasiekti informacija is duomenu bazes.
+// 2.

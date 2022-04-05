@@ -14,22 +14,44 @@ const ENDPOINT = 'https://api.github.com/users';
 const button = document.getElementById('btn');
 const result = document.getElementById('output');
 
-button.addEventListener('click', () => {});
+button.addEventListener('click', () => {
+  getUsers();
+});
 
-fetch(ENDPOINT)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  })
-  .catch(function (err) {
-    console.log(`error: ${err}`);
-  });
+function getUsers() {
+  fetch(ENDPOINT)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      gen(data);
+      console.log(data);
+    })
+    .catch(function (err) {
+      console.log(`error: ${err}`);
+    });
+}
+// fetch(ENDPOINT)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     gen(data);
+//     console.log(data);
+//   })
+//   .catch(function (err) {
+//     console.log(`error: ${err}`);
+//   });
 
 function createDiv(login, avatar) {
   const createNewDiv = document.createElement('div');
   createNewDiv.innerHTML = `<img src="${avatar}" alt="Avatar image"/>
   <h3>${login}</h3>`;
   return createNewDiv;
+}
+
+function gen(array) {
+  array.forEach((element) => {
+    result.append(createDiv(element.login, element.avatar_url));
+  });
 }
